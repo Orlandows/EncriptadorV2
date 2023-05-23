@@ -3,6 +3,7 @@ function encriptar(){
     let tituloMensaje = document.getElementById("titulo-mensaje");
     let parrafo = document.getElementById("parrafo");
     let muneco = document.getElementById("muneco");
+    let cifrados = document.getElementById("mensaje");
 
     let textoCifrado = texto
         .replace(/e/gi, "enter")
@@ -12,7 +13,7 @@ function encriptar(){
         .replace(/u/gi, "ufat")
 
     if(texto.length != 0){
-        document.getElementById("texto").value = textoCifrado;
+        document.getElementById("mensaje").value = textoCifrado;
         tituloMensaje.textContent = "Texto Encriptado con exito";
         parrafo.textContent = "";
         muneco.src = "./Imagenes/Exito.jpg";
@@ -20,7 +21,12 @@ function encriptar(){
         muneco.src = "./Imagenes/Muñeco.svg"
         tituloMensaje.textContent = "Ningun mensaje encontrado";
         parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-        alert("debes ingresaralgun texto");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Ingresa algun texto',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 
 }
@@ -30,6 +36,7 @@ function desencriptar (){
     let tituloMensaje = document.getElementById("titulo-mensaje");
     let parrafo = document.getElementById("parrafo");
     let muneco = document.getElementById("muneco");
+    let cifrados = document.getElementById("mensaje");
 
     let textoCifrado = texto
         .replace(/enter/gi, "e")
@@ -39,15 +46,35 @@ function desencriptar (){
         .replace(/ufat/gi, "u")
     
     if(texto.length != 0){
-        document.getElementById("texto").value = textoCifrado;
-        tituloMensaje.textContent = "Texto desncriptado con exito";
+        document.getElementById("mensaje").value = textoCifrado;
+        tituloMensaje.textContent = "Texto desencriptado con exito";
         parrafo.textContent = "";
         muneco.src = "./Imagenes/Saltando.jpg";
     } else {
         muneco.src = "./Imagenes/Muñeco.svg"
         tituloMensaje.textContent = "Ningun mensaje encontrado";
         parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-        alert("debes ingresaralgun texto");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Ingresa algun texto',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }
 
 }
+
+var botonCortar = document.querySelector('.btn-copiar');
+
+botonCortar.addEventListener('click', function(event) {
+  var contenido = document.querySelector('.mensaje');
+  contenido.select();
+
+  try {
+    var resultado = document.execCommand('cut');
+    console.log(resultado ? 'Contenido cortado' : 'No se pudo cortar el contenido');
+  } catch(err) {
+    console.log('ERROR al intentar cortar el contenido');
+  }
+});
+   
