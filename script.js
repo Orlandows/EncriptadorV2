@@ -70,6 +70,16 @@ botonCortar.addEventListener('click', function(event) {
   var contenido = document.querySelector('.mensaje');
   contenido.select();
 
+Swal.fire({
+    showConfirmButton: false,
+    timer: 1500,
+    title: 'Texto copiado al portapapeles',
+    text: 'Vaya secreto eh...',
+    imageUrl: './Imagenes/Clipboard.png',
+    imageWidth: 200,
+    mageHeight: 200,
+    
+  })
   try {
     var resultado = document.execCommand('cut');
     console.log(resultado ? 'Contenido cortado' : 'No se pudo cortar el contenido');
