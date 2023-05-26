@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="encriptar">
-            <textarea name="texto" class="texto" id="texto" cols="30" rows="10" placeholder="Ingresa el texto aqui"></textarea>
+            <textarea name="texto" class="texto" id="texto" cols="30" rows="10" placeholder="Ingresa el texto aqui" required autocomplete="off" onkeypress="return (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" min="1"></textarea>
             <div class="terminos">
                 <p>Solo letras minusculas y sin acentos.</p>
             </div>

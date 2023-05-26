@@ -87,4 +87,3 @@ Swal.fire({
     console.log('ERROR al intentar cortar el contenido');
   }
 });
-   
